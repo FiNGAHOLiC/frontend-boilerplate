@@ -22,12 +22,19 @@ const settings = {
 module.exports = {
     entry: settings.js.entry,
     output: settings.js.output,
+    devtool: 'source-map',
     module: {
         loaders: [
             {
                 test: /.jsx?$/,
                 loader: 'babel',
                 exclude: /node_modules/,
+            },
+        ],
+        preLoaders: [
+            {
+                test: /\.js?$/,
+                loader: 'source-map',
             },
         ],
     },
