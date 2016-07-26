@@ -6,17 +6,17 @@ import merge from 'webpack-merge';
 const buildMode = process.env.NODE_ENV;
 
 const buildPaths = {
-    dev: path.join(__dirname, 'app/development'),
-    prod: path.join(__dirname, 'app/production'),
+    src: path.join(__dirname, 'app/src'),
+    build: path.join(__dirname, 'app/build'),
 };
 
 const assetSettings = {
     js: {
         entry: {
-            app: `${buildPaths.dev}/assets/js/app.jsx`,
+            app: `${buildPaths.src}/assets/js/app.jsx`,
         },
         output: {
-            path: `${buildPaths.prod}/assets/js/`,
+            path: `${buildPaths.build}/assets/js/`,
             filename: '[name].js',
         },
     },
