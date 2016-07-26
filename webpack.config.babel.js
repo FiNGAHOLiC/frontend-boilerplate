@@ -10,7 +10,7 @@ const paths = {
 const settings = {
     js: {
         entry: {
-            app: `${paths.dev}/assets/js/app.jsx`
+            app: `${paths.dev}/assets/js/app.jsx`,
         },
         output: {
             path: `${paths.prod}/assets/js/`,
@@ -39,6 +39,6 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ["", ".js", ".jsx"]
+        extensions: ["", ".js", ".jsx"],
     },
 };
