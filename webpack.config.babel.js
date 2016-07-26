@@ -5,18 +5,20 @@ import merge from 'webpack-merge';
 
 const buildMode = process.env.NODE_ENV;
 
-const buildPaths = {
-    src: path.join(__dirname, 'app/src'),
-    build: path.join(__dirname, 'app/build'),
+const assetsDir = {
+    js: {
+        src: path.join(__dirname, 'app/assets/js/src/'),
+        dist: path.join(__dirname, 'app/assets/js/dist/'),
+    },
 };
 
 const assetSettings = {
     js: {
         entry: {
-            app: `${buildPaths.src}/assets/js/app.jsx`,
+            app: `${assetsDir.js.src}app.jsx`,
         },
         output: {
-            path: `${buildPaths.build}/assets/js/`,
+            path: assetsDir.js.dist,
             filename: '[name].js',
         },
     },
@@ -34,21 +36,23 @@ const buildSettings = {
                     exclude: /node_modules/,
                 },
             ],
+            preLoaders: [
+                {
+                    test: /\.js?$/,
+                    loader: 'source-map',
+                },
+            ],
         },
         resolve: {
             extensions: ['', '.js', '.jsx'],
         },
     },
     dev: {
-        devtool: 'source-map',
-        preLoaders: [
-            {
-                test: /\.js?$/,
-                loader: 'source-map',
-            },
-        ],
+        devtool: 'inline-source-map',
     },
-    prod: {},
+    prod: {
+        devtool: 'eval',
+    },
 };
 
 let settings;
