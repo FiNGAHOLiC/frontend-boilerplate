@@ -12,7 +12,7 @@ const assetsDir = {
     },
 };
 
-const assetSettings = {
+const assetsSettings = {
     js: {
         entry: {
             app: `${assetsDir.js.src}app.jsx`,
@@ -26,8 +26,8 @@ const assetSettings = {
 
 const buildSettings = {
     common: {
-        entry: assetSettings.js.entry,
-        output: assetSettings.js.output,
+        entry: assetsSettings.js.entry,
+        output: assetsSettings.js.output,
         module: {
             loaders: [
                 {
