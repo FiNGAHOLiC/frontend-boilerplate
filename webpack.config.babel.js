@@ -51,10 +51,14 @@ const buildSettings = {
     prod: {},
 };
 
+let settings;
+
 if (buildMode === 'dev') {
-    module.exports = merge(buildSettings.common, buildSettings.dev);
+    settings = merge(buildSettings.common, buildSettings.dev);
 }
 
 if (buildMode === 'prod') {
-    module.exports = merge(buildSettings.common, buildSettings.prod);
+    settings = merge(buildSettings.common, buildSettings.prod);
 }
+
+export default settings;
