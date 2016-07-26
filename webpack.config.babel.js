@@ -1,38 +1,46 @@
 'use strict';
 
 import path from 'path';
+import merge from 'webpack-merge';
 
-const mode = process.env.NODE_ENV;
+const buildMode = process.env.NODE_ENV;
 
-const paths = {
+const buildPaths = {
     dev: path.join(__dirname, 'app/development'),
     prod: path.join(__dirname, 'app/production'),
 };
 
-const settings = {
+const assetSettings = {
     js: {
         entry: {
-            app: `${paths.dev}/assets/js/app.jsx`,
+            app: `${buildPaths.dev}/assets/js/app.jsx`,
         },
         output: {
-            path: `${paths.prod}/assets/js/`,
+            path: `${buildPaths.prod}/assets/js/`,
             filename: '[name].js',
         },
     },
 };
 
-module.exports = {
-    entry: settings.js.entry,
-    output: settings.js.output,
-    devtool: 'source-map',
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                loader: 'babel',
-                exclude: /node_modules/,
-            },
-        ],
+const buildSettings = {
+    common: {
+        entry: assetSettings.js.entry,
+        output: assetSettings.js.output,
+        module: {
+            loaders: [
+                {
+                    test: /\.jsx?$/,
+                    loader: 'babel',
+                    exclude: /node_modules/,
+                },
+            ],
+        },
+        resolve: {
+            extensions: ['', '.js', '.jsx'],
+        },
+    },
+    dev: {
+        devtool: 'source-map',
         preLoaders: [
             {
                 test: /\.js?$/,
@@ -40,7 +48,13 @@ module.exports = {
             },
         ],
     },
-    resolve: {
-        extensions: ["", ".js", ".jsx"],
-    },
+    prod: {},
 };
+
+if (buildMode === 'dev') {
+    module.exports = merge(buildSettings.common, buildSettings.dev);
+}
+
+if (buildMode === 'prod') {
+    module.exports = merge(buildSettings.common, buildSettings.prod);
+}
