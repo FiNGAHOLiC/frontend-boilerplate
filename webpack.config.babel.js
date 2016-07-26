@@ -2,6 +2,8 @@
 
 import path from 'path';
 
+const mode = process.env.NODE_ENV;
+
 const paths = {
     dev: path.join(__dirname, 'app/development'),
     prod: path.join(__dirname, 'app/production'),
