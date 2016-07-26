@@ -6,6 +6,10 @@
     "type": "git",
     "url": "git+https://github.com/FiNGAHOLiC/frontend_boilerplate.git"
   },
+  "scripts": {
+    "build:dev": "webpack",
+    "build:prod": "webpack -p"
+  },
   "author": "fingaholic",
   "license": "MIT",
   "bugs": {
