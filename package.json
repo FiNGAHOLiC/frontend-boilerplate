@@ -1,0 +1,15 @@
+{
+  "name": "frontend_boilerplate",
+  "version": "1.0.0",
+  "description": "[WIP] My Frontend Boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FiNGAHOLiC/frontend_boilerplate.git"
+  },
+  "author": "fingaholic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FiNGAHOLiC/frontend_boilerplate/issues"
+  },
+  "homepage": "https://github.com/FiNGAHOLiC/frontend_boilerplate#readme"
+}
