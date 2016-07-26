@@ -4,6 +4,7 @@ import path from 'path';
 import merge from 'webpack-merge';
 
 const buildMode = process.env.NODE_ENV;
+const isProductionBuild = process.argv.includes('--p');
 
 const assetsDir = {
     js: {
@@ -55,14 +56,7 @@ const buildSettings = {
     },
 };
 
-let settings;
-
-if (buildMode === 'dev') {
-    settings = merge(buildSettings.common, buildSettings.dev);
-}
-
-if (buildMode === 'prod') {
-    settings = merge(buildSettings.common, buildSettings.prod);
-}
-
-export default settings;
+export default merge(
+    buildSettings.common,
+    isProductionBuild ? buildSettings.prod : buildSettings.dev
+);

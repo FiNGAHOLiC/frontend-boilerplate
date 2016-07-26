@@ -7,8 +7,8 @@
     "url": "git+https://github.com/FiNGAHOLiC/frontend_boilerplate.git"
   },
   "scripts": {
-    "build:dev": "NODE_ENV=dev webpack",
-    "build:prod": "NODE_ENV=prod webpack -p"
+    "build:dev": "webpack && node server.js",
+    "build:prod": "webpack -p --p && node server.js --p"
   },
   "author": "fingaholic",
   "license": "MIT",
