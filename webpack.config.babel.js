@@ -94,7 +94,5 @@ const config = {
 
 export default merge(
     config.common,
-    process.argv.includes('--prod')
-        ? config.prod
-        : config.dev
+    process.argv.includes('--prod') ? config.prod : config.dev
 );
