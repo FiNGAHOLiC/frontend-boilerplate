@@ -7,8 +7,9 @@
     "url": "git+https://github.com/FiNGAHOLiC/frontend_boilerplate.git"
   },
   "scripts": {
-    "build:dev": "webpack && node server.js",
     "build:prod": "webpack -p --p && node server.js --p"
+    "server": "node server.js",
+    "build:dev": "webpack && npm run server",
   },
   "author": "fingaholic",
   "license": "MIT",
@@ -21,10 +22,13 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.11.5",
+    "opn": "^4.0.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "source-map-loader": "^0.1.5",
     "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^0.14.1"
   }
 }
