@@ -5,8 +5,14 @@
 [WIP] My Frontend Boilerplate
 
 1. webpack
-1. react
-1. babel
+1. React.js
+1. ES2015 (Babel)
+1. HMR (Hot Module Replacement)
+1. [WIP] PostCSS
+1. [WIP] CSS Modules
+1. [WIP] Redux
+1. [WIP] test
+1. [WIP] linter
 
 ## Usage
 
@@ -14,7 +20,7 @@
 # install npm modules
 $ npm install
 
-# build for dev
+# build for dev 
 $ npm run build:dev
 
 # build for prod
