@@ -1,9 +1,11 @@
-'use strict';
-
 import React from 'react';
 
-export default class Hello extends React.Component {
-    render() {
-        return <h1>Hello {this.props.name} !</h1>
-    }
+function Hello({ name }) {
+  return <h1>{name}</h1>;
 }
+
+Hello.propTypes = {
+  name: React.PropTypes.string.isRequired,
+};
+
+export default Hello;
