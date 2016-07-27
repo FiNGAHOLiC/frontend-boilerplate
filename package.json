@@ -7,9 +7,10 @@
     "url": "git+https://github.com/FiNGAHOLiC/frontend_boilerplate.git"
   },
   "scripts": {
-    "build:prod": "webpack -p --p && node server.js --p"
+    "clean": "rimraf app/prod",
     "server": "node server.js",
     "build:dev": "webpack && npm run server",
+    "build:prod": "npm run clean && webpack -p --prod"
   },
   "author": "fingaholic",
   "license": "MIT",
@@ -26,6 +27,7 @@
     "opn": "^4.0.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
+    "rimraf": "^2.5.4",
     "source-map-loader": "^0.1.5",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
