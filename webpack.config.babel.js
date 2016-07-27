@@ -6,6 +6,7 @@ import merge from 'webpack-merge';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const config = {
+    // 開発・リリース用のビルド設定
     common: {
         context: path.join(__dirname, 'app', 'dev'),
         entry: {
@@ -30,6 +31,7 @@ const config = {
             extensions: ['', '.js', '.jsx'],
         },
     },
+    // 開発用のビルド設定
     dev: {
         output: {
             // 本来は相対パスで問題ないが、
@@ -57,6 +59,7 @@ const config = {
         plugins: [],
         devtool: 'inline-source-map',
     },
+    // リリース用のビルド設定
     prod: {
         output: {
             // 本来は相対パスで問題ないが、
