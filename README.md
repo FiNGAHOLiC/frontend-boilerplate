@@ -12,7 +12,7 @@
 1. [WIP] CSS Modules
 1. [WIP] Redux
 1. [WIP] test
-1. [WIP] linter
+1. eslint(airbnb)
 
 ## Usage
 
