@@ -1,46 +1,25 @@
 'use strict';
 
 import path from 'path';
+import webpack from 'webpack';
 import merge from 'webpack-merge';
 
-const buildMode = process.env.NODE_ENV;
-const isProductionBuild = process.argv.includes('--p');
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
-const assetsDir = {
-    js: {
-        src: path.join(__dirname, 'app/assets/js/src/'),
-        dist: path.join(__dirname, 'app/assets/js/dist/'),
-    },
-};
-
-const assetsSettings = {
-    js: {
-        entry: {
-            app: `${assetsDir.js.src}app.jsx`,
-        },
-        output: {
-            path: assetsDir.js.dist,
-            filename: '[name].js',
-        },
-    },
-};
-
-const buildSettings = {
+const config = {
     common: {
-        entry: assetsSettings.js.entry,
-        output: assetsSettings.js.output,
+        context: path.join(__dirname, 'app/dev'),
         module: {
-            loaders: [
-                {
-                    test: /\.jsx?$/,
-                    loader: 'babel',
-                    exclude: /node_modules/,
-                },
-            ],
             preLoaders: [
                 {
                     test: /\.js?$/,
-                    loader: 'source-map',
+                    loaders: [
+
+                        // -loader postfixをつけないとnode_modulesまで対象に含まれてしまうため、
+                        // 省略せずに記述すること
+                        // ref: http://stackoverflow.com/a/29890656
+                        'source-map-loader',
+                    ],
                 },
             ],
         },
@@ -49,14 +28,91 @@ const buildSettings = {
         },
     },
     dev: {
+        entry: {
+            app: [
+                // HMR用の指定は本番ビルドでは不要なので開発ビルド時のみに含める
+                'webpack-dev-server/client?http://localhost:3000',
+                'webpack/hot/only-dev-server',
+                './assets/js/src/app.jsx',
+            ],
+        },
+        output: {
+            // 本来は相対パスで問題ないが、
+            // server.js経由で参照される場合は絶対パスである必要がある
+            path: path.join(__dirname, 'app/dev/assets/js'),
+            filename: 'app.js',
+        },
+        plugins: [
+            new webpack.HotModuleReplacementPlugin(),
+        ],
+        // webpack-dev-server用の設定
+        devServer: {
+            publicPath: '/',
+            contentBase: 'app/dev',
+            hot: true,
+            historyApiFallback: true,
+            stats: {
+                colors: true,
+                chunks: false,
+            },
+        },
+        module: {
+            loaders: [
+                {
+                    test: /\.jsx?$/,
+                    loaders: [
+                        // -loader postfixをつけないとnode_modulesまで対象に含まれてしまうため、
+                        // 省略せずに記述すること
+                        // ref: http://stackoverflow.com/a/29890656
+                        'react-hot-loader',
+                        'babel-loader',
+                    ],
+                    include: path.join(__dirname, 'app'),
+                },
+            ],
+        },
         devtool: 'inline-source-map',
     },
     prod: {
+        entry: {
+            app: [
+                './assets/js/src/app.jsx',
+            ],
+        },
+        output: {
+            // 本来は相対パスで問題ないが、
+            // server.js経由で参照される場合は絶対パスである必要がある
+            path: path.join(__dirname, 'app/prod/assets/js'),
+            filename: 'app.js',
+        },
+        plugins: [
+            new CopyWebpackPlugin([
+                {
+                    from: 'index.html',
+                    to: path.join(__dirname, 'app/prod'),
+                }
+            ]),
+        ],
+        module: {
+            loaders: [
+                {
+                    test: /\.jsx?$/,
+                    loaders: [
+                        // -loader postfixをつけないとnode_modulesまで対象に含まれてしまうため、
+                        // 省略せずに記述すること
+                        // ref: http://stackoverflow.com/a/29890656
+                        'babel-loader'
+                    ],
+                },
+            ],
+        },
         devtool: 'eval',
     },
 };
 
 export default merge(
-    buildSettings.common,
-    isProductionBuild ? buildSettings.prod : buildSettings.dev
+    config.common,
+    process.argv.includes('--prod')
+        ? config.prod
+        : config.dev
 );
