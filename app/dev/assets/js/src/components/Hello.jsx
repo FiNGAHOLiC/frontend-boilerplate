@@ -6,4 +6,8 @@ Hello.propTypes = {
   name: React.PropTypes.string.isRequired,
 };
 
+Hello.defaultProps = {
+  name: 'Anonymous',
+};
+
 export default Hello;
