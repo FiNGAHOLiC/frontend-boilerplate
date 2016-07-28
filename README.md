@@ -14,6 +14,10 @@
 1. [WIP] Redux
 1. [WIP] test
 
+## Todo
+css sourcemaps
+local server for production build
+
 ## Usage
 
 ```
