@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import Hello from './components/Hello';
 
 ReactDOM.render(
-  <Hello name="Sumally" />,
+  <Hello name="FooBar" />,
   document.getElementById('js-app')
 );
