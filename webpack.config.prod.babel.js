@@ -19,6 +19,13 @@ export default {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
+    // uglify時のエラーは表示しない
+    // http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+    }),
     new CopyWebpackPlugin([
       {
         from: 'index.html',
