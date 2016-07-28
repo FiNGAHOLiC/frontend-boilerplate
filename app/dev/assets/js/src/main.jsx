@@ -14,6 +14,8 @@ ReactDOM.render(
 
 if (module.hot) {
   module.hot.accept('./App', () => {
+    // TODO:
+    // eslintでエラーが出るので代替方法を模索する
     const NextApp = require('./App').default;
     ReactDOM.render(
       <AppContainer>
