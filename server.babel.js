@@ -4,7 +4,8 @@ import WebpackDevServer from 'webpack-dev-server';
 import webpackConfig from './webpack.config.babel';
 
 const port = 3000;
-const url = `http://localhost:${port}`;
+const host = 'localhost';
+const url = `http://${host}:${port}`;
 
 webpackConfig.entry.app.unshift(
   `webpack-dev-server/client?${url}`,
@@ -24,7 +25,7 @@ new WebpackDevServer(webpack(webpackConfig), {
     colors: true,
     chunks: false,
   },
-}).listen(port, 'localhost', () => {
+}).listen(port, host, () => {
   const options = { app: 'google chrome' };
   return opn(url, options);
 });
