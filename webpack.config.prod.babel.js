@@ -16,7 +16,7 @@ export default {
     // ref: http://moduscreate.com/optimizing-react-es6-webpack-production-build/
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production'),
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
     // uglify時のエラーは表示しない

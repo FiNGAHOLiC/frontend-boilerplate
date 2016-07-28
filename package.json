@@ -11,7 +11,7 @@
     "clean": "rimraf app/prod",
     "server": "node server.js",
     "build:dev": "webpack && npm run server",
-    "build:prod": "npm run clean && BABEL_ENV=production webpack -p --prod"
+    "build:prod": "npm run clean && NODE_ENV=production webpack -p"
   },
   "author": "fingaholic",
   "license": "MIT",
