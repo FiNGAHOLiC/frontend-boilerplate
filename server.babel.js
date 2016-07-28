@@ -9,7 +9,8 @@ const url = `http://${host}:${port}`;
 
 webpackConfig.entry.app.unshift(
   `webpack-dev-server/client?${url}`,
-  'webpack/hot/only-dev-server'
+  'webpack/hot/only-dev-server',
+  'react-hot-loader/patch',
 );
 
 webpackConfig.plugins.push(
