@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 
@@ -11,6 +12,13 @@ export default {
     filename: 'main.js',
   },
   plugins: [
+    // Webpack’s build processを本番ビルド用にする
+    // ref: http://moduscreate.com/optimizing-react-es6-webpack-production-build/
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
     new CopyWebpackPlugin([
       {
         from: 'index.html',
