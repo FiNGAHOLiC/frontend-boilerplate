@@ -7,6 +7,5 @@ import webpackConfigProd from './webpack.config.prod.babel';
 const isProd = process.argv.includes('--prod');
 
 export default merge(
-  webpackConfigCommon,
-  isProd ? webpackConfigProd : webpackConfigDev
+  webpackConfigCommon, isProd ? webpackConfigProd : webpackConfigDev
 );
