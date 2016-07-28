@@ -1,7 +1,7 @@
 import opn from 'opn';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import webpackConfig from './webpack.config.babel.js';
+import webpackConfig from './webpack.config.babel';
 
 const port = 3000;
 const url = `http://localhost:${port}`;

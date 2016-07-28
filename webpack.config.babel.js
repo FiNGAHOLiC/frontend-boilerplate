@@ -1,8 +1,8 @@
 import merge from 'webpack-merge';
 
-import webpackConfigCommon from './webpack.config.common.babel.js';
-import webpackConfigDev from './webpack.config.dev.babel.js';
-import webpackConfigProd from './webpack.config.prod.babel.js';
+import webpackConfigCommon from './webpack.config.common.babel';
+import webpackConfigDev from './webpack.config.dev.babel';
+import webpackConfigProd from './webpack.config.prod.babel';
 
 const isProd = process.argv.includes('--prod');
 
