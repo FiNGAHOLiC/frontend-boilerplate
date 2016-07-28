@@ -4,7 +4,7 @@ export default {
   context: path.join(__dirname, 'app', 'dev'),
   entry: {
     app: [
-      './assets/js/src/main.jsx',
+      './assets/js/src/Main.jsx',
     ],
   },
   module: {
