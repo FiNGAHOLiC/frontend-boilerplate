@@ -15,8 +15,9 @@ ReactDOM.render(
 
 if (module.hot) {
   module.hot.accept('./App', () => {
-    // TODO:
-    // eslintでエラーが出るので代替方法を模索する
+    // If you use Webpack 2 in ES modules mode, you can
+    // use <App /> here rather than require() a <NextApp />.
+    // ref: https://goo.gl/GSa5zv
     const NextApp = require('./App').default;
     ReactDOM.render(
       <AppContainer>
