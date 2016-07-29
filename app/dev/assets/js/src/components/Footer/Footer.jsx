@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from './Footer.css';
 
 const Footer = (props) => (
-  <footer>
+  <footer className={styles.footer}>
     © 2016 {props.name}
   </footer>
 );

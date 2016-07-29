@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from './Article.css';
 
 const Article = () => (
-  <article>
+  <article className={styles.article}>
     article
   </article>
 );
