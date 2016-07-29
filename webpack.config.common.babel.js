@@ -14,13 +14,13 @@ export default {
     // ref: http://stackoverflow.com/a/29890656
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.jsx$/,
         loaders: [
           'babel-loader',
         ],
       },
       {
-        test: /\.css?$/,
+        test: /\.css$/,
         loader: ExtractTextWebpackPlugin.extract(
           'style-loader',
           webpackCombineLoaders([
@@ -38,7 +38,7 @@ export default {
     ],
     preLoaders: [
       {
-        test: /\.js?$/,
+        test: /\.js$/,
         loaders: [
           'source-map-loader',
         ],
