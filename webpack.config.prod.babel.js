@@ -2,7 +2,6 @@ import path from 'path';
 import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
-
 export default {
   output: {
     // 本来は相対パスで問題ないが、
