@@ -11,14 +11,16 @@
 1. HMR (Hot Module Replacement)
 1. [WIP] PostCSS
 1. [WIP] CSS Modules
-1. [WIP] Redux
+1. [WIP] Redux or Flux
 1. [WIP] test
 
 ## Todo
-css sourcemaps
-local server for production build
-fix loaders test regex
 CSS HMR
+CSS BEM
+CSS Sourcemaps
+React CSS Modules
+React Router
+Local Server for Production Build
 
 ## Usage
 
