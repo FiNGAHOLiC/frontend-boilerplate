@@ -25,6 +25,7 @@ export default {
         warnings: false,
       },
     }),
+    // 本番用ディレクトリにindex.htmlをコピー
     new CopyWebpackPlugin([
       {
         from: 'index.html',
