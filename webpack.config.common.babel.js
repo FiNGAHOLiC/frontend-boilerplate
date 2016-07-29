@@ -44,12 +44,12 @@ export default {
         ],
       },
     ],
-    plugins: [
-      new ExtractTextWebpackPlugin('main.css', {
-        allChunks: true,
-      }),
-    ],
   },
+  plugins: [
+    new ExtractTextWebpackPlugin('../css/main.css', {
+      allChunks: true,
+    }),
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
