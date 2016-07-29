@@ -1,8 +1,8 @@
-# Frontend Boilerplate
+# [WIP] Frontend Boilerplate
 
 ## About
 
-[WIP] My Frontend Boilerplate
+Frontend Boilerplate
 
 1. webpack
 1. React.js
