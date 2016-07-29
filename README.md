@@ -17,6 +17,8 @@
 ## Todo
 css sourcemaps
 local server for production build
+fix loaders test regex
+CSS HMR
 
 ## Usage
 
