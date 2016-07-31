@@ -1,8 +1,46 @@
 import path from 'path';
 import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import webpackCombineLoaders from 'webpack-combine-loaders';
+import ExtractTextWebpackPlugin from 'extract-text-webpack-plugin';
 
 export default {
+  module: {
+    // -loader postfixをつけないとnode_modulesまで対象に含まれてしまう
+    // ref: http://stackoverflow.com/a/29890656
+    loaders: [
+      {
+        test: /\.jsx$/,
+        loaders: [
+          'babel-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextWebpackPlugin.extract(
+          'style-loader',
+          webpackCombineLoaders([
+            {
+              loader: 'css-loader',
+              query: {
+                modules: true,
+                importLoaders: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
+          ])
+        ),
+      },
+    ],
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loaders: [
+          'source-map-loader',
+        ],
+      },
+    ],
+  },
   output: {
     // 本来は相対パスで問題ないが、
     // server.js経由で参照される場合は絶対パスである必要がある
@@ -32,5 +70,8 @@ export default {
         to: path.join(__dirname, 'app', 'prod'),
       },
     ]),
+    new ExtractTextWebpackPlugin('../css/main.css', {
+      allChunks: true,
+    }),
   ],
 };
