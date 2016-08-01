@@ -16,8 +16,8 @@ Frontend Boilerplate
 
 ## Todo
 CSS HMR
-CSS BEM
 CSS Sourcemaps
+CSS BEM
 React CSS Modules
 React Router
 Local Server for Production Build
