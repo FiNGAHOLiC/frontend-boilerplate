@@ -11,11 +11,11 @@ Frontend Boilerplate
 1. HMR (Hot Module Replacement)
 1. CSS Modules
 1. PostCSS
-1. [WIP] Redux or Flux
-1. [WIP] test
 
 ## Todo
 React Router
+Redux or Flux
+test
 
 ## Usage
 
