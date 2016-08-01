@@ -10,14 +10,11 @@ Frontend Boilerplate
 1. eslint(airbnb)
 1. HMR (Hot Module Replacement)
 1. CSS Modules
-1. [WIP] PostCSS
+1. PostCSS
 1. [WIP] Redux or Flux
 1. [WIP] test
 
 ## Todo
-CSS Sourcemaps
-CSS BEM
-React CSS Modules
 React Router
 Local Server for Production Build
 
