@@ -70,6 +70,7 @@ export default {
         to: path.join(__dirname, 'app', 'prod'),
       },
     ]),
+    // CSSは外部ファイル化する
     new ExtractTextWebpackPlugin('../css/main.css', {
       allChunks: true,
     }),
