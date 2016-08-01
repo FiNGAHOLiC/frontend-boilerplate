@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import Article from './components/Article/Article';
+import Props from './components/Props/Props';
 import Footer from './components/Footer/Footer';
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div>
       <Header name={companyName} />
-      <Article />
+      <Props />
       <Footer name={companyName} />
     </div>
   );
