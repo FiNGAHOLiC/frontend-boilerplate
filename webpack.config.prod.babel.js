@@ -35,14 +35,6 @@ export default {
         ),
       },
     ],
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loaders: [
-          'source-map-loader',
-        ],
-      },
-    ],
   },
   output: {
     // 本来は相対パスで問題ないが、
