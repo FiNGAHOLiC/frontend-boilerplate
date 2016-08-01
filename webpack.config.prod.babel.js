@@ -1,6 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpackCombineLoaders from 'webpack-combine-loaders';
 import ExtractTextWebpackPlugin from 'extract-text-webpack-plugin';
 
@@ -63,13 +63,13 @@ export default {
         warnings: false,
       },
     }),
-    // 本番用ディレクトリにindex.htmlをコピー
-    new CopyWebpackPlugin([
-      {
-        from: 'index.html',
-        to: path.join(__dirname, 'app', 'prod'),
-      },
-    ]),
+    // テンプレートを元に本番環境用のHTMLを作成
+    new HtmlWebpackPlugin({
+        inject: false,
+        isProd: true,
+        filename: '../../index.html',
+        template: 'src/index.ejs',
+    }),
     // CSSは外部ファイル化する
     new ExtractTextWebpackPlugin('../css/main.css', {
       allChunks: true,

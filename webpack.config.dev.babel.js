@@ -1,4 +1,5 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   module: {
@@ -35,5 +36,14 @@ export default {
     publicPath: '/assets/js/',
     filename: 'main.js',
   },
+  plugins: [
+    // テンプレートを元に開発環境用のHTMLを作成
+    new HtmlWebpackPlugin({
+      inject: false,
+      isProd: false,
+      filename: '../../index.html',
+      template: 'src/index.ejs',
+    }),
+  ],
   devtool: 'inline-source-map',
 };

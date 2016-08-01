@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Test</title>
-    
+    <% if (htmlWebpackPlugin.options.isProd) { %>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <% } %>
 </head>
 <body>
     <div id="js-app"></div>
