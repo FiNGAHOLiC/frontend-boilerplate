@@ -4,11 +4,10 @@ import webpackCombineLoaders from 'webpack-combine-loaders';
 
 export default {
   module: {
-    // -loader postfixをつけないとnode_modulesまで対象に含まれてしまう
-    // ref: http://stackoverflow.com/a/29890656
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         loaders: [
           'babel-loader',
         ],
@@ -37,6 +36,7 @@ export default {
     preLoaders: [
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         loaders: [
           'source-map-loader',
         ],
