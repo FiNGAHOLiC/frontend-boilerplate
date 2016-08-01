@@ -16,7 +16,6 @@ Frontend Boilerplate
 
 ## Todo
 React Router
-Local Server for Production Build
 
 ## Usage
 

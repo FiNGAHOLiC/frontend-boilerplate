@@ -1,2 +1,5 @@
 require('babel-register');
-require('./server.babel');
+
+require(
+  process.env.NODE_ENV === 'production' ? './server.prod.babel' : './server.dev.babel'
+);
