@@ -1,17 +1,19 @@
 import React from 'react';
+
 import Header from './components/Header/Header';
-import Props from './components/Props/Props';
+import ItemList from './components/ItemList/ItemList';
 import Footer from './components/Footer/Footer';
 
-const App = () => {
-  const companyName = 'Company Name';
-  return (
-    <div>
-      <Header name={companyName} />
-      <Props />
-      <Footer name={companyName} />
-    </div>
-  );
+const App = (props) => (
+  <div>
+    <Header />
+    <ItemList items={props.items} />
+    <Footer />
+  </div>
+);
+
+App.propTypes = {
+  items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 };
 
 export default App;

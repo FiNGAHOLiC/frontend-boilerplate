@@ -1,18 +1,10 @@
 import React from 'react';
 import styles from './Header.css';
 
-const Header = (props) => (
+const Header = () => (
   <header className={styles.header}>
-    {props.name}
+    header
   </header>
 );
-
-Header.propTypes = {
-  name: React.PropTypes.string.isRequired,
-};
-
-Header.defaultProps = {
-  name: 'Company Name',
-};
 
 export default Header;
