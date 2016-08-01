@@ -1,3 +1,17 @@
 article {
     background: red;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    background: yellow;
+    padding: 10px;
+}
+
+td {
+    background: blue;
+    padding: 10px;
+}
