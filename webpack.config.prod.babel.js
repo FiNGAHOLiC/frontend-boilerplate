@@ -24,6 +24,7 @@ export default {
               loader: 'css-loader',
               query: {
                 modules: true,
+                sourceMap: false,
                 importLoaders: true,
                 localIdentName: '[name]__[local]___[hash:base64:5]',
               },
@@ -65,10 +66,10 @@ export default {
     }),
     // テンプレートを元に本番環境用のHTMLを作成
     new HtmlWebpackPlugin({
-        inject: false,
-        isProd: true,
-        filename: '../../index.html',
-        template: 'src/index.ejs',
+      inject: false,
+      isProd: true,
+      filename: '../../index.html',
+      template: 'src/index.ejs',
     }),
     // CSSは外部ファイル化する
     new ExtractTextWebpackPlugin('../css/main.css', {

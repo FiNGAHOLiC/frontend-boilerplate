@@ -1,5 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpackCombineLoaders from 'webpack-combine-loaders';
 
 export default {
   module: {
@@ -16,7 +17,17 @@ export default {
         test: /\.css$/,
         loaders: [
           'style-loader',
-          'css-loader',
+          webpackCombineLoaders([
+            {
+              loader: 'css-loader',
+              query: {
+                modules: true,
+                sourceMap: true,
+                importLoaders: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
+          ]),
         ],
       },
     ],
