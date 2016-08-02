@@ -14,8 +14,9 @@ Frontend Boilerplate
 1. PostCSS
 
 ## Todo
+1. Add bemmer
 1. Add redux-actions
-1. Add CSS Modules Samples
+1. Add normalize.css
 1. Test (Mocha)
 1. Router (react-router)
 
