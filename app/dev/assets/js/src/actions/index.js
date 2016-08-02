@@ -1,5 +1,3 @@
-import * as types from '../constants/actiontypes';
+import { createAction } from 'redux-actions';
 
-export function send(value) {
-  return { type: types.SEND, value };
-}
+export const send = createAction('send message');

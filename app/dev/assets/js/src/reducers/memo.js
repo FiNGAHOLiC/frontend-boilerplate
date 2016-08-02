@@ -1,18 +1,13 @@
-import * as types from '../constants/actiontypes';
+import { handleActions } from 'redux-actions';
 
 const initialState = {
   value: null,
 };
 
-const memo = (state = initialState, action) => {
-  switch (action.type) {
-    case types.SEND:
-      return Object.assign({}, state, {
-        value: action.value,
-      });
-    default:
-      return state;
-  }
-};
-
-export default memo;
+export default handleActions({
+  'send message'(state, action) {
+    return {
+      value: action.payload,
+    };
+  },
+}, initialState);
