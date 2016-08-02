@@ -2,13 +2,13 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import FormInput from '../components/FormInput';
-import FormDisplay from '../components/FormDisplay';
+import FormInput from '../../components/FormInput';
+import FormDisplay from '../../components/FormDisplay';
 
-import * as Actions from '../actions/index';
+import * as Actions from '../../actions';
 
 import classnames from 'classnames';
-import styles from './App.css';
+import styles from './index.css';
 
 const FormApp = (props) => {
   const { memo, actions } = props;

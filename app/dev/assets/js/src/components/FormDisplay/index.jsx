@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import styles from './FormDisplay.css';
+import styles from './index.css';
 
 const FormDisplay = (props) => {
   const { value } = props;

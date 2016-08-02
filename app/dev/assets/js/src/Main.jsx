@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 import App from './containers/App';
 
-import configure from './store/index';
+import configure from './store';
 
 const store = configure();
 const elRoot = document.getElementById('js-app');
