@@ -2,43 +2,40 @@ import { AppContainer } from 'react-hot-loader';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import App from './App';
+import App from './containers/App';
 
-import fetchItemData from './utils/fetchItemData';
+import configure from './store/index';
 
-let itemData = [];
+const store = configure();
+const elRoot = document.getElementById('js-app');
 
-const rootEl = document.getElementById('js-app');
+ReactDOM.render(
+  <AppContainer>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </AppContainer>,
+  elRoot
+);
 
-window.addEventListener('load', () => {
-  fetchItemData().then((res) => {
-    itemData = res.data;
-    ReactDOM.render(
-      <AppContainer>
-        <App items={res.data} />
-      </AppContainer>,
-      rootEl
-    );
-  });
-}, false);
-
-// HMR用の設定
-// ※本番用ビルドでは実行されず、開発環境のみで有効
 if (module.hot) {
-  module.hot.accept('./App', () => {
+  module.hot.accept('./containers/App', () => {
     // HMRさせるために現段階ではrequire()するしかないため
     // eslintのエラー検知を無視する設定を追加している
     // ref: https://goo.gl/GSa5zv
 
     // eslint-disable-next-line global-require
-    const NextApp = require('./App').default;
+    const NextApp = require('./containers/App').default;
 
     ReactDOM.render(
       <AppContainer>
-        <NextApp items={itemData} />
+        <Provider store={store}>
+          <NextApp />
+        </Provider>
       </AppContainer>,
-      rootEl
+      elRoot
     );
   });
 }
