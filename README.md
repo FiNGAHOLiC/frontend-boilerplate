@@ -13,6 +13,8 @@ Frontend Boilerplate
 1. PostCSS
 
 ## Todo
+use classnames module
+use normalize.css
 React Router
 Redux or Flux
 test
