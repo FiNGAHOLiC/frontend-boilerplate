@@ -31,4 +31,7 @@ $ npm run build:dev
 
 # build for prod
 $ npm run build:prod
+
+# lint
+$ npm run lint
 ```

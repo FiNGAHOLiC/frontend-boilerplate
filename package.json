@@ -7,7 +7,7 @@
     "url": "git+https://github.com/FiNGAHOLiC/frontend_boilerplate.git"
   },
   "scripts": {
-    "lint": "eslint app/**/*.jsx; exit 0",
+    "lint": "eslint app/dev/assets/js/src/* --ext .js,.jsx; exit 0",
     "clean": "rimraf app/prod",
     "build:dev": "webpack && node server.js",
     "build:prod": "npm run clean && NODE_ENV=production webpack -p && NODE_ENV=production node server.js"
