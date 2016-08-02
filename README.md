@@ -15,6 +15,7 @@ Frontend Boilerplate
 
 ## Todo
 1. Add bemmer module
+1. Add redux-devtools-extension
 1. Add normalize.css
 1. Test (Mocha)
 1. Router (react-router)
