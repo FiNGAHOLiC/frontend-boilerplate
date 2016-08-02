@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import styles from './FormInput.css';
 
 class FormInput extends React.Component {
@@ -12,8 +13,12 @@ class FormInput extends React.Component {
     this.input.value = '';
   }
   render() {
+    const classes = classnames({
+      [styles.root]: true,
+    });
+
     return (
-      <form className={styles.root}>
+      <form className={classes}>
         <input type="text" ref={(ref) => (this.input = ref)} />
         <button onClick={this.send}>Send</button>
       </form>

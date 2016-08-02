@@ -14,7 +14,6 @@ Frontend Boilerplate
 1. PostCSS
 
 ## Todo
-1. Add classnames module
 1. Add bemmer module
 1. Add redux-actions module
 1. Add normalize.css

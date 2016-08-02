@@ -1,10 +1,15 @@
 import React from 'react';
+import classnames from 'classnames';
 import styles from './FormDisplay.css';
 
 const FormDisplay = (props) => {
   const { value } = props;
+  const classes = classnames({
+    [styles.root]: true,
+  });
+
   return (
-    <div className={styles.root}>{value}</div>
+    <div className={classes}>{value}</div>
   );
 };
 

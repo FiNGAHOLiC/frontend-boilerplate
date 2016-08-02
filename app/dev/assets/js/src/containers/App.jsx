@@ -7,12 +7,17 @@ import FormDisplay from '../components/FormDisplay';
 
 import * as Actions from '../actions/index';
 
+import classnames from 'classnames';
 import styles from './App.css';
 
 const FormApp = (props) => {
   const { memo, actions } = props;
+  const classes = classnames({
+    [styles.root]: true,
+  });
+
   return (
-    <div className={styles.root}>
+    <div className={classes}>
       <FormInput send={actions.send} />
       <FormDisplay value={memo.value} />
     </div>
