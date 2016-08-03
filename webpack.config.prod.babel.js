@@ -24,7 +24,7 @@ export default {
               query: {
                 modules: true,
                 sourceMap: false,
-                importLoaders: true,
+                importLoaders: 1,
                 localIdentName: '[name]__[local]___[hash:base64:5]',
               },
             },
