@@ -39,6 +39,7 @@
     "html-webpack-plugin": "^2.22.0",
     "normalize.css": "^4.2.0",
     "opn": "^4.0.2",
+    "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
     "precss": "^1.4.0",
     "react-hot-loader": "^3.0.0-beta.2",
