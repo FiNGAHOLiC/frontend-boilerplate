@@ -1,7 +1,6 @@
 import path from 'path';
 import precss from 'precss';
 import autoprefixer from 'autoprefixer';
-import postcssImport from 'postcss-import';
 
 export default {
   context: path.join(__dirname, 'app', 'dev'),
@@ -14,15 +13,10 @@ export default {
       './assets/js/src/Main.jsx',
     ],
   },
-  postcss(webpack) {
-    return [
-      postcssImport({
-        addDependencyTo: webpack,
-      }),
-      precss,
-      autoprefixer,
-    ];
-  },
+  postcss: [
+    precss,
+    autoprefixer,
+  ],
   plugins: [],
   resolve: {
     extensions: ['', '.js', '.jsx'],
